@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUSCOIN - $SUS | The Ultimate Meme Coin on Solana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --gray-1: #111111;
+            --gray-2: #222222;
+            --gray-3: #333333;
+            --gray-5: #555555;
+            --gray-8: #888888;
+            --gray-d: #DDDDDD;
+            --gray-e: #EEEEEE;
+            --accent: #FF0000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-2);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 12px; /* Abgerundete Ecken für das Logo */
+            transition: transform 0.3s;
+            background-color: var(--black); /* Schwarzer Hintergrund für das Logo */
+            padding: 5px;
+        }
+        
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .ticker {
+            font-size: 22px;
+            background-color: var(--white);
+            color: var(--black);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            transition: all 0.3s;
+        }
+        
+        .ticker:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to bottom, var(--black), var(--gray-1));
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 70%);
+            pointer-events: none;
+        }
+        
+        .hero h1 {
+            font-size: 62px;
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(to right, var(--white), var(--gray-d));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--gray-d);
+            font-weight: 600;
+        }
+        
+        .highlight {
+            color: var(--white);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+        
+        .ca-section {
+            background-color: var(--gray-1);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 40px auto;
+            max-width: 800px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            border: 1px solid var(--gray-3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .ca-label {
+            font-weight: 700;
+            color: var(--white);
+            font-size: 18px;
+        }
+        
+        .ca-address {
+            background-color: var(--gray-2);
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--gray-3);
+            font-family: monospace;
+            flex-grow: 1;
+            min-width: 300px;
+            color: var(--white);
+            font-size: 16px;
+        }
+        
+        .copy-btn {
+            background-color: var(--white);
+            color: var(--black);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .copy-btn:hover {
+            background-color: var(--gray-d);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+        
+        .buy-btn {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--black);
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 800;
+            margin: 20px 0;
+            transition: all 0.4s;
+            box-shadow: 0 5px 25px rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .buy-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+        
+        .buy-btn:hover::before {
+            left: 100%;
+        }
+        
+        .buy-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Tokenomics Section */
+        .tokenomics {
+            padding: 100px 0;
+            background-color: var(--gray-1);
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--white);
+        }
+        
+        .tokenomics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .tokenomic-card {
+            background-color: var(--gray-2);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s;
+            border: 1px solid var(--gray-3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tokenomic-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--white), var(--gray-8));
+        }
+        
+        .tokenomic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+        
+        .tokenomic-icon {
+            font-size: 50px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        .tokenomic-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+        
+        .tokenomic-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--white);
+        }
+        
+        /* How to Buy Section */
+        .how-to-buy {
+            padding: 100px 0;
+            background-color: var(--black);
+        }
+        
+        .steps {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            background-color: var(--gray-1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s;
+            border: 1px solid var(--gray-2);
+        }
+        
+        .step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+        }
+        
+        .step-number {
+            background-color: var(--white);
+            color: var(--black);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 900;
+            margin-right: 25px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+        
+        .step-content h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .step-content p {
+            color: var(--gray-d);
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--gray-1);
+            padding: 60px 0 30px;
+            text-align: center;
+            border-top: 1px solid var(--gray-2);
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 12px; /* Abgerundete Ecken für das Footer-Logo */
+            background-color: var(--black); /* Schwarzer Hintergrund für das Logo */
+            padding: 5px;
+        }
+        
+        .footer-text {
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .community-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 40px 0 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .community-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--gray-2);
+            color: var(--white);
+            font-size: 28px;
+            transition: all 0.3s;
+            text-decoration: none;
+            border: 1px solid var(--gray-3);
+        }
+        
+        .social-link.x-logo {
+            font-weight: 900;
+            font-family: Arial, sans-serif;
+        }
+        
+        .social-link:hover {
+            background-color: var(--white);
+            color: var(--black);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            color: var(--gray-8);
+            font-size: 16px;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        /* Popup Notification */
+        .popup {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background-color: var(--white);
+            color: var(--black);
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            font-weight: 600;
+            transform: translateX(150%);
+            transition: transform 0.4s ease;
+        }
+        
+        .popup.show {
+            transform: translateX(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .tokenomics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://i.ibb.co/nqkdckPF/SUSLOGO.png" alt="SUSCOIN Logo">
+                    <div class="logo-text">$SUSCOIN</div>
+                </div>
+                <div class="ticker">$SUS</div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>The Most <span class="highlight">SUS</span> Meme Coin on Solana</h1>
+            <p>Don't miss the next big thing in crypto. <span class="highlight">SUSCOIN</span> is revolutionizing the meme coin space with a completely transparent, community-driven approach. The FOMO is real - get in before it's too late!</p>
+            
+            <div class="ca-section floating">
+                <div class="ca-label">CONTRACT ADDRESS:</div>
+                <div class="ca-address" id="contractAddress">0x742d35Cc6634C0532925a3b8D4B... (replace with actual CA)</div>
+                <button class="copy-btn" id="copyButton">
+                    <i class="fas fa-copy"></i> COPY
+                </button>
+            </div>
+            
+            <a href="https://pump.fun" class="buy-btn" target="_blank">
+                <i class="fas fa-bolt"></i> BUY ON PUMP.fun
+            </a>
+            
+            <p style="margin-top: 30px; font-size: 18px; color: var(--gray-8);">
+                <i class="fas fa-exclamation-triangle"></i> Early investors are already seeing massive gains. Don't be the one who missed out!
+            </p>
+        </div>
+    </section>
+    
+    <section class="tokenomics">
+        <div class="container">
+            <h2 class="section-title">TOKENOMICS</h2>
+            <div class="tokenomics-grid">
+                <div class="tokenomic-card">
+                    <div class="tokenomic-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="tokenomic-title">MAX SUPPLY</div>
+                    <div class="tokenomic-value">1,000,000,000</div>
+                    <p style="margin-top: 15px; color: var(--gray-d);">Limited supply for maximum scarcity</p>
+                </div>
+                
+                <div class="tokenomic-card">
+                    <div class="tokenomic-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <div class="tokenomic-title">NO FEES</div>
+                    <div class="tokenomic-value">0% Tax</div>
+                    <p style="margin-top: 15px; color: var(--gray-d);">Keep 100% of your investment</p>
+                </div>
+                
+                <div class="tokenomic-card">
+                    <div class="tokenomic-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="tokenomic-title">LIQUIDITY</div>
+                    <div class="tokenomic-value">100% Locked</div>
+                    <p style="margin-top: 15px; color: var(--gray-d);">Completely secure and rug-proof</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-to-buy">
+        <div class="container">
+            <h2 class="section-title">How To Buy $SUS</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Download Phantom Wallet</h3>
+                        <p>Get the Phantom wallet browser extension or mobile app from the official website. The safest way to store your $SUS.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Get Some $SOLANA</h3>
+                        <p>Purchase SOL from an exchange and transfer it to your Phantom wallet. This will be used to buy $SUS.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Search SUSCOIN or the Contract Address</h3>
+                        <p>Go to Pump.fun and search for "SUSCOIN" or paste the contract address directly to find the token.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Buy Some $SUS</h3>
+                        <p>Connect your wallet, enter the amount you want to buy, and confirm the transaction. Welcome to the SUS family!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="https://i.ibb.co/nqkdckPF/SUSLOGO.png" alt="SUSCOIN Logo">
+                <div class="footer-text">$SUSCOIN</div>
+            </div>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--gray-d); font-size: 18px;">
+                The most talked-about meme coin on Solana. Join the revolution before it's too late!
+            </p>
+            
+            <h3 class="community-title">JOIN COMMUNITY</h3>
+            
+            <div class="social-links">
+                <a href="https://x.com/SUSCOINSOLDEV" class="social-link x-logo" target="_blank">
+                    𝕏
+                </a>
+                <a href="https://t.me/+YsCjJIp3qgNhZTMy" class="social-link" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 $SUSCOIN. All rights reserved. This is a meme coin, not financial advice. Invest at your own risk.
+            </div>
+        </div>
+    </footer>
+    
+    <div class="popup" id="popup">
+        Contract address copied to clipboard!
+    </div>
+    
+    <script>
+        // Contract Address Copy Functionality with Popup
+        document.getElementById('copyButton').addEventListener('click', function() {
+            const contractAddress = document.getElementById('contractAddress');
+            const textArea = document.createElement('textarea');
+            textArea.value = contractAddress.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Show popup notification
+            const popup = document.getElementById('popup');
+            popup.classList.add('show');
+            
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 3000);
+        });
+        
+        // Add floating animation to multiple elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.tokenomic-card, .step');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+        
+        // Replace with actual contract address
+        // document.getElementById('contractAddress').textContent = "YOUR_ACTUAL_CONTRACT_ADDRESS_HERE";
+    </script>
+</body>
+</html>
